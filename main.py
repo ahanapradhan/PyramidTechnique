@@ -49,7 +49,7 @@ def get_bar(i, j, q_hyper, d):
     max_q_i_curve, min_q_i_curve = get_q_j_min_max_curve(d, i, i, q_hyper)
     max_q_j_curve, min_q_j_curve = get_q_j_min_max_curve(d, i, j, q_hyper)
 
-    if min_q_j_curve >= min_q_i_curve:
+    if min_q_j_curve >= min_q_i_curve:  # as per the proof body. Lemma 2 statement formula is incorrect
         return max(min_q_i_curve, min_q_j_curve)
     else:
         return min_q_i_curve
@@ -91,4 +91,3 @@ q_hyper_main = [[0.2, 0.3], [0.6, 0.9]]
 for pyramid in [0, 1]:
     if lemma_1(dim, pyramid, q_hyper_main):
         print(f"p{pyramid}:", lemma_2(dim, pyramid, q_hyper_main))
-
